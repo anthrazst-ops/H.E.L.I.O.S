@@ -57,7 +57,7 @@ show_usage() {
     echo -e "${YEL}\033[1mUsage:${NC} helios -u <URL> [-t <TOOL>] [-p <PROXY>]"
     echo -e "${SUN_ORA}---------------------------------------------------------------------------${NC}"
     echo -e "${YEL}\033[1mSelect Tool (-t):${NC}"
-    echo -e "  1. helios    ${BLU}[EXTREME]${NC} : Custom FFUF Engine"
+    echo -e "  1. helios    ${BLU}[EXTREME]${NC} : Custom HELIOS Engine"
     echo -e "  2. gobuster  ${GRA}[FAST]   ${NC} : Go-based brute forcer"
     echo -e "  3. dirb      ${YEL}[MED]    ${NC} : Classic scanner"
     echo -e "  4. nikto     ${RED}[SLOW]   ${NC} : Vulnerability scan"
