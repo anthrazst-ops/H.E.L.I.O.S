@@ -15,12 +15,12 @@ NC='\033[0m'
 show_banner() {
     # ASCII Art & Nama Helios dibuat Bold
     echo -e "${SUN_ORA}"
-    echo -e "      \033[1m  \\ | /"
-    echo -e "      '-.ooo.-'"
-    echo -e "     --ooooooo--"
-    echo -e "      .-'ooo'-."
-    echo -e "        / | \\"
-    echo -e "     [ H.E.L.I.O.S ]${NC}"
+    echo -e "        \033[1m  \\ | /"
+    echo -e "        '-.ooo.-'"
+    echo -e "        --ooooooo--"
+    echo -e "        .-'ooo'-."
+    echo -e "          / | \\"
+    echo -e "      [ H.E.L.I.O.S ]${NC}"
     # Deskripsi & Team dibuat Bold
     echo -e "${SUN_ORA}\033[1mCustom Directory Brute-Force Tool${NC}"
     echo -e "${RED}\033[1mMade by: Alphabet Offensive Team (SMK YAPALIS KRIAN)${NC}"
@@ -54,7 +54,8 @@ check_cmd() {
 show_usage() {
     show_banner
     echo -e "${SUN_ORA}---------------------------------------------------------------------------${NC}"
-    echo -e "${YEL}\033[1mUsage:${NC} helios -u <URL> [-t <TOOL>] [-p <PROXY>]"
+    # DITAMBAHKAN OPSI -i DISINI
+    echo -e "${YEL}\033[1mUsage:${NC} helios -u <URL> | -i <IP> [-t <TOOL>] [-p <PROXY>]"
     echo -e "${SUN_ORA}---------------------------------------------------------------------------${NC}"
     echo -e "${YEL}\033[1mSelect Tool (-t):${NC}"
     echo -e "  1. helios    ${BLU}[EXTREME]${NC} : Custom HELIOS Engine"
@@ -137,9 +138,11 @@ run_helios_engine() {
 # --- MAIN ---
 if [ $# -eq 0 ]; then show_usage; exit 0; fi
 TARGET=""; TOOL="helios"; PROXY=""
-while getopts "u:t:p:h" opt; do
+# Nambah i: di getopts
+while getopts "u:i:t:p:h" opt; do
   case $opt in
     u) TARGET="$OPTARG" ;;
+    i) TARGET="http://$OPTARG" ;; # Logic IP otomatis tambah http
     t) TOOL="$OPTARG" ;;
     p) PROXY="$OPTARG" ;;
     h) show_usage; exit 0 ;;
@@ -147,7 +150,13 @@ while getopts "u:t:p:h" opt; do
   esac
 done
 
-if [ -z "$TARGET" ]; then echo -e "${RED}[!] Error: URL Required (-u)!${NC}"; exit 1; fi
+if [ -z "$TARGET" ]; then echo -e "${RED}[!] Error: Target (-u atau -i) Required!${NC}"; exit 1; fi
+
+# Tambahkan http:// jika input lewat -u lupa protokol
+if [[ ! $TARGET =~ ^https?:// ]]; then
+    TARGET="http://$TARGET"
+fi
+TARGET="${TARGET%/}"
 
 clear; show_banner
 echo -e "Target: ${YEL}\033[1m$TARGET${NC}"

@@ -1,0 +1,13 @@
+# Dirsearch started Tue Feb  3 20:52:33 2026 as: /usr/lib/python3/dist-packages/dirsearch/dirsearch.py -u http://ctfyapalis.ap.loclx.io -w /home/equation/LKS/tool/helios.txt -e php,html,js,txt,zip -t 50 -q --format=plain
+
+200     1KB  http://ctfyapalis.ap.loclx.io/.env
+200   105B   http://ctfyapalis.ap.loclx.io/dashboard
+200     2KB  http://ctfyapalis.ap.loclx.io/console
+200    24B   http://ctfyapalis.ap.loclx.io/debug
+200     1KB  http://ctfyapalis.ap.loclx.io/sitemap.xml
+200   475B   http://ctfyapalis.ap.loclx.io/static
+200    40B   http://ctfyapalis.ap.loclx.io/robots.txt
+200   228B   http://ctfyapalis.ap.loclx.io/api
+200    18B   http://ctfyapalis.ap.loclx.io/admin
+200     2KB  http://ctfyapalis.ap.loclx.io/login
+500    13KB  http://ctfyapalis.ap.loclx.io/profile

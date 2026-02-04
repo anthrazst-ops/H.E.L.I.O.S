@@ -1,4 +1,4 @@
-cat <<EOF > ~/LKS/wordlists/helios.txt
+cat <<EOF > ~/LKS/tool/helios.txt
 admin
 administrator
 login
