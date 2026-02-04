@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# 1. Pastikan folder tujuan ada
+# Membuat folder permanen
 mkdir -p "$HOME/LKS/tool"
 
-# 2. Copy file ke folder tujuan
-cp helios.sh "$HOME/LKS/tool/helios.sh"
-cp helios.txt "$HOME/LKS/tool/helios.txt"
+# Menyalin file ke folder permanen agar path di helios.sh tidak patah
+cp helios.sh helios.txt "$HOME/LKS/tool/"
+
+# Memberi izin eksekusi
 chmod +x "$HOME/LKS/tool/helios.sh"
 
-# 3. Bikin supaya bisa dipanggil dengan ketik 'helios' saja
-# Kita buat link di /usr/local/bin (butuh sudo)
-echo "[!] Menyiapkan akses perintah 'helios'..."
+# Membuat shortcut global (Symbolic Link)
+echo "[!] Mendaftarkan perintah helios ke sistem..."
 sudo ln -sf "$HOME/LKS/tool/helios.sh" /usr/local/bin/helios
 
-echo "[+] Selesai! Sekarang kamu bisa ketik 'helios' di mana saja."
+echo "[+] Setup Selesai! Silakan ketik 'helios' untuk mencoba."
